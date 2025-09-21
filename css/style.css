@@ -81,13 +81,15 @@ header {
 
 .hero-links {
   display: flex;
-  gap: 24px;            /* space between contact/address/social */
+  gap: 24px;            /* space between each link */
   flex-wrap: wrap;
+  margin-top: 16px;
 }
 
 .hero-links a {
-  display: inline-flex; /* align icon + text horizontally */
-  align-items: center;  /* vertically centered */
+  position: relative;   /* ✅ needed so ::after underline positions correctly */
+  display: inline-flex;
+  align-items: center;  /* center icon + text vertically */
   gap: 8px;             /* space between icon and text */
   color: var(--text-primary);
   font-weight: 500;
@@ -95,22 +97,21 @@ header {
   text-decoration: none;
 }
 
-.hero-links a:hover::after {
-  width: 100%;
+/* Icon sizing */
+.link-icon {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  display: inline-block;
+  flex-shrink: 0;
 }
 
-.link-icon {
-  width: 18px;          /* fixed icon size */
-  height: 18px;
-  object-fit: contain;  /* keep correct proportions */
-  display: inline-block;
-}
 /* Hover gradient underline */
 .hero-links a::after {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -2px;
+  bottom: -3px;
   width: 0;
   height: 2px;
   background: linear-gradient(to right, var(--accent-green), var(--accent-copper));
