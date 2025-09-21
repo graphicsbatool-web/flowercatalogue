@@ -87,9 +87,9 @@ header {
 }
 
 .hero-links a {
-  display: inline-flex;      /* align icon and text */
-  align-items: center;       /* vertical center */
-  gap: 6px; !important;                 /* space between icon and text */
+  display: inline-flex;      
+  align-items: center;       
+  gap: 18px !important;       /* updated gap between icon and text */
   color: var(--text-primary);
   font-weight: 500;
   font-size: 14px;
@@ -136,13 +136,14 @@ section h3::after{
 .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
 @media(max-width:980px){.grid{grid-template-columns:repeat(2,1fr);} .hero-text h2{font-size:26px;}}
 @media(max-width:620px){.grid{grid-template-columns:repeat(2,1fr);} .hero{height:45vh;} .hero-text h2{font-size:20px;}}
+
 @media(max-width:480px){
   .hero-links {
-    gap: 12px;
+    gap: 12px;   /* smaller gap on very small screens */
   }
   .hero-links a {
     font-size: 13px;
-    gap: 4px;
+    gap: 12px !important;  /* mobile-specific gap */
   }
   .hero-links a .link-icon {
     width: 14px;
