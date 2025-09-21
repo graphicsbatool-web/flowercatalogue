@@ -89,7 +89,7 @@ header {
 .hero-links a {
   display: inline-flex;      /* align icon and text */
   align-items: center;       /* vertical center */
-  gap: 18px;                  /* space between icon and text */
+  gap: 18px; !important;                 /* space between icon and text */
   color: var(--text-primary);
   font-weight: 500;
   font-size: 14px;
