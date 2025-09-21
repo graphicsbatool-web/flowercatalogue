@@ -34,19 +34,22 @@ header{animation-delay:0.2s;}
   to{opacity:1; transform:translateY(0);}
 }
 
-header{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  padding:20px 0;
+header {
+  display: flex;
+  align-items: center;
+  padding: 1rem 2rem;
 }
-.logo{
-  width:64px; height:64px; border-radius:16px;
-  background:var(--accent-green);
-  display:flex; align-items:center; justify-content:center;
-  font-weight:700; color:var(--bg-body);
-  font-size:22px;
-  flex-shrink:0;
+
+.logo {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 2rem;
+  color: #2e3d2f; /* deep emerald tone */
+  letter-spacing: 2px;
+  background: #f4f1ec; /* soft background for luxury feel */
+  padding: 0.5rem 1rem;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 .brand-text h1{
   font-size:24px; margin:0;
