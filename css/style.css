@@ -82,7 +82,7 @@ header {
 /* Hero links with PNG icons */
 .hero-links {
   display: flex;
-  gap: 20px;
+  gap: 40px;
   flex-wrap: wrap;
 }
 
