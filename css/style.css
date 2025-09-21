@@ -79,31 +79,32 @@ header {
 .hero-text h2{font-size:32px; line-height:1.3; margin:0 0 12px; color:var(--text-primary);}
 .hero-text p{color:var(--text-secondary); margin:0 0 16px; font-size:15px;}
 
-/* Hero links with PNG icons */
 .hero-links {
   display: flex;
-  gap: 20px;
+  gap: 24px;              /* space between each link block */
   flex-wrap: wrap;
 }
 
 .hero-links a {
-  display: inline-flex;      
-  align-items: center;       
-  gap: 18px !important;       /* updated gap between icon and text */
+  display: inline-flex;   /* icon + text align horizontally */
+  align-items: center;    /* vertical centering */
+  gap: 8px;               /* 🎉 space between icon and text */
   color: var(--text-primary);
   font-weight: 500;
   font-size: 14px;
   text-decoration: none;
-  position: relative;
-  padding-bottom: 2px;
 }
 
-.hero-links a .link-icon {
-  width: 16px;
-  height: 16px;
-  object-fit: contain;       /* keep original icon proportions */
+.hero-links a:hover::after {
+  width: 100%;
 }
 
+.link-icon {
+  width: 18px;            /* adjust % as needed */
+  height: 18px;
+  display: inline-block;
+  vertical-align: middle;
+}
 /* Hover gradient underline */
 .hero-links a::after {
   content: "";
