@@ -57,12 +57,20 @@ header {
 }
 
 /* Responsive logo for smaller screens */
-@media (max-width: 620px){
-  .logo img {
-    max-height: 45px;
+@media(max-width:620px){
+  .grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    gap: 12px; /* optional, smaller gap for mobile */
+  }
+
+  .hero {
+    height: 45vh;
+  }
+
+  .hero-text h2 {
+    font-size: 20px;
   }
 }
-
 /* Hero */
 .hero{
   position:relative;
