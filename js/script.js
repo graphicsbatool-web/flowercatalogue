@@ -1,9 +1,11 @@
-const bestSellers=[
+// Data
+const bestSellers = [
   {name:"White Linen",desc:"Hand-tied ranunculus & foliage",price:"$65",img:"images/white_linen.jpg"},
   {name:"Muted Blush",desc:"Peony-centric pastel bouquet",price:"$78",img:"images/muted_blush.jpg"},
   {name:"Dried Meadow",desc:"Neutral-toned dried stems",price:"$58",img:"images/dried_meadow.jpg"}
 ];
-const products=[
+
+const products = [
   {name:"Spring Bloom",desc:"Fresh lilies & tulips",price:"$60",img:"images/spring_bloom.jpg"},
   {name:"Autumn Gold",desc:"Rustic wheat & roses",price:"$65",img:"images/autumn_gold.jpg"},
   {name:"Winter Whisper",desc:"White roses & pine",price:"$70",img:"images/winter_whisper.jpg"},
@@ -12,8 +14,9 @@ const products=[
   {name:"Calm Neutrals",desc:"Dried pampas & creams",price:"$58",img:"images/calm_neutrals.jpg"}
 ];
 
-const makeCard=(p,highlight=false)=>`
-  <article class="card ${highlight?'highlight':''}">
+// Function to create a product card
+const makeCard = (p, highlight=false) => `
+  <article class="card ${highlight ? 'highlight' : ''}">
     <div class="product-img" style="background-image:url('${p.img}')"></div>
     <div>
       <div style="display:flex; justify-content:space-between; align-items:center">
@@ -30,18 +33,36 @@ const makeCard=(p,highlight=false)=>`
     </div>
   </article>`;
 
-document.getElementById("best-grid").innerHTML=bestSellers.map(p=>makeCard(p,true)).join("");
-document.getElementById("product-grid").innerHTML=products.map(p=>makeCard(p)).join("");
+// Populate grids
+document.getElementById("best-grid").innerHTML = bestSellers.map(p => makeCard(p, true)).join("");
+document.getElementById("product-grid").innerHTML = products.map(p => makeCard(p)).join("");
 
-const observer=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      e.target.classList.add("show");
-      observer.unobserve(e.target);
+// Intersection Observer for card fade-in
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add("show");
+      observer.unobserve(entry.target);
     }
   });
-},{threshold:.2});
-document.querySelectorAll('.card').forEach(c=>observer.observe(c));
+}, {threshold: 0.2});
 
-const heroImg=document.querySelector('.hero img');
-window.addEventListener('scroll',()=>{ heroImg.style.transform=`translateY(${window.scrollY*0.2}px)`; });
+document.querySelectorAll('.card').forEach(card => observer.observe(card));
+
+// Hero parallax scroll
+const heroImg = document.querySelector('.hero img');
+if(heroImg){
+  window.addEventListener('scroll', () => {
+    heroImg.style.transform = `translateY(${window.scrollY * 0.2}px)`;
+  });
+}
+
+// Logo fade-in
+const logo = document.querySelector('.logo');
+if(logo){
+  logo.style.opacity = 0;
+  setTimeout(() => {
+    logo.style.transition = "opacity 1s ease";
+    logo.style.opacity = 1;
+  }, 200); // matches header fade timing
+}
