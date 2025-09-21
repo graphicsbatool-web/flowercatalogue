@@ -56,21 +56,6 @@ header {
   width: auto;
 }
 
-/* Responsive logo for smaller screens */
-@media(max-width:320px){
-  .grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 columns */
-    gap: 12px; /* optional, smaller gap for mobile */
-  }
-
-  .hero {
-    height: 45vh;
-  }
-
-  .hero-text h2 {
-    font-size: 20px;
-  }
-}
 /* Hero */
 .hero{
   position:relative;
@@ -94,20 +79,46 @@ header {
 .hero-text h2{font-size:32px; line-height:1.3; margin:0 0 12px; color:var(--text-primary);}
 .hero-text p{color:var(--text-secondary); margin:0 0 16px; font-size:15px;}
 
-/* Hero links */
-.hero-links{display:flex; gap:20px; flex-wrap:wrap;}
-.hero-links a{
-  color:var(--text-primary);
-  font-weight:500; font-size:14px;
-  position:relative; text-decoration:none; padding-bottom:2px;
+/* Hero links with PNG icons */
+.hero-links {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
 }
-.hero-links a::after{
-  content:""; position:absolute; left:0; bottom:-2px;
-  width:0; height:2px;
-  background:linear-gradient(to right, var(--accent-green), var(--accent-copper));
-  transition:width 0.3s ease;
+
+.hero-links a {
+  display: inline-flex;      /* align icon and text */
+  align-items: center;       /* vertical center */
+  gap: 6px;                  /* space between icon and text */
+  color: var(--text-primary);
+  font-weight: 500;
+  font-size: 14px;
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 2px;
 }
-.hero-links a:hover::after{width:100%;}
+
+.hero-links a .link-icon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;       /* keep original icon proportions */
+}
+
+/* Hover gradient underline */
+.hero-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(to right, var(--accent-green), var(--accent-copper));
+  transition: width 0.3s ease;
+}
+
+.hero-links a:hover::after {
+  width: 100%;
+}
 
 /* Section Headings */
 section h3{
@@ -124,7 +135,20 @@ section h3::after{
 /* Grid */
 .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
 @media(max-width:980px){.grid{grid-template-columns:repeat(2,1fr);} .hero-text h2{font-size:26px;}}
-@media(max-width:620px){.grid{grid-template-columns:1fr;} .hero{height:45vh;} .hero-text h2{font-size:20px;}}
+@media(max-width:620px){.grid{grid-template-columns:repeat(2,1fr);} .hero{height:45vh;} .hero-text h2{font-size:20px;}}
+@media(max-width:480px){
+  .hero-links {
+    gap: 12px;
+  }
+  .hero-links a {
+    font-size: 13px;
+    gap: 4px;
+  }
+  .hero-links a .link-icon {
+    width: 14px;
+    height: 14px;
+  }
+}
 
 /* Card */
 .card{
