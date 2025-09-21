@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const bestSellers = [
     {name:"Bouquet A",desc:"Hand-tied ranunculus & foliage",price:"$65",img:"images/bouqueta.jpg"},
     {name:"Bouquet B",desc:"Peony-centric pastel bouquet",price:"$78",img:"images/bouquetb.jpg"},
-    {name:"Bouquet C",desc:"Neutral-toned dried stems",price:"$58",img:"images/bouquetc.jpg"}
+    {name:"Bouquet C",desc:"Neutral-toned dried stems",price:"$58",img:"images/bouquetc.jpg"},
     {name:"Bouquet D",desc:"Neutral-toned dried stems",price:"$58",img:"images/bouquetc.jpg"}
   ];
 
