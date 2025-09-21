@@ -81,14 +81,14 @@ header {
 
 .hero-links {
   display: flex;
-  gap: 24px;              /* space between each link block */
+  gap: 24px;            /* space between contact/address/social */
   flex-wrap: wrap;
 }
 
 .hero-links a {
-  display: inline-flex;   /* icon + text align horizontally */
-  align-items: center;    /* vertical centering */
-  gap: 8px;               /* 🎉 space between icon and text */
+  display: inline-flex; /* align icon + text horizontally */
+  align-items: center;  /* vertically centered */
+  gap: 8px;             /* space between icon and text */
   color: var(--text-primary);
   font-weight: 500;
   font-size: 14px;
@@ -100,10 +100,10 @@ header {
 }
 
 .link-icon {
-  width: 18px;            /* adjust % as needed */
+  width: 18px;          /* fixed icon size */
   height: 18px;
+  object-fit: contain;  /* keep correct proportions */
   display: inline-block;
-  vertical-align: middle;
 }
 /* Hover gradient underline */
 .hero-links a::after {
