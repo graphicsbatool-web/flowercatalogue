@@ -81,29 +81,26 @@ header {
 
 .hero-links {
   display: flex;
-  gap: 24px;            /* space between each link */
+  gap: 24px;          /* space between links */
   flex-wrap: wrap;
   margin-top: 16px;
 }
 
 .hero-links a {
-  position: relative;   /* ✅ needed so ::after underline positions correctly */
+  position: relative;
   display: inline-flex;
-  align-items: center;  /* center icon + text vertically */
-  gap: 8px;             /* space between icon and text */
+  align-items: center; 
+  gap: 8px;           /* space between icon and text */
   color: var(--text-primary);
+  text-decoration: none;
   font-weight: 500;
   font-size: 14px;
-  text-decoration: none;
 }
 
-/* Icon sizing */
-.link-icon {
-  width: 18px;
-  height: 18px;
-  object-fit: contain;
-  display: inline-block;
-  flex-shrink: 0;
+/* Font Awesome icon style */
+.hero-links i {
+  font-size: 18px;     /* control icon size */
+  line-height: 1;
 }
 
 /* Hover gradient underline */
