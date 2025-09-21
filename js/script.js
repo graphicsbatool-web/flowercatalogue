@@ -1,8 +1,8 @@
 // Data
 const bestSellers = [
-  {name:"White Linen",desc:"Hand-tied ranunculus & foliage",price:"$65",img:"images/white_linen.jpg"},
-  {name:"Muted Blush",desc:"Peony-centric pastel bouquet",price:"$78",img:"images/muted_blush.jpg"},
-  {name:"Dried Meadow",desc:"Neutral-toned dried stems",price:"$58",img:"images/dried_meadow.jpg"}
+  {name:"Bouquet (A2)",desc:"Hand-tied ranunculus & foliage",price:"$65",img:"images/bouqueta.jpg"},
+  {name:"Bouquet (A3)",desc:"Peony-centric pastel bouquet",price:"$78",img:"images/bouquetb.jpg"},
+  {name:"Bouquet (A4)",desc:"Neutral-toned dried stems",price:"$58",img:"images/bouquetc.jpg"}
 ];
 
 const products = [
