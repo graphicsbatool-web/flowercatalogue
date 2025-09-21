@@ -1,0 +1,47 @@
+const bestSellers=[
+  {name:"White Linen",desc:"Hand-tied ranunculus & foliage",price:"$65",img:"images/white_linen.jpg"},
+  {name:"Muted Blush",desc:"Peony-centric pastel bouquet",price:"$78",img:"images/muted_blush.jpg"},
+  {name:"Dried Meadow",desc:"Neutral-toned dried stems",price:"$58",img:"images/dried_meadow.jpg"}
+];
+const products=[
+  {name:"Spring Bloom",desc:"Fresh lilies & tulips",price:"$60",img:"images/spring_bloom.jpg"},
+  {name:"Autumn Gold",desc:"Rustic wheat & roses",price:"$65",img:"images/autumn_gold.jpg"},
+  {name:"Winter Whisper",desc:"White roses & pine",price:"$70",img:"images/winter_whisper.jpg"},
+  {name:"Summer Brights",desc:"Sunflowers & asters",price:"$62",img:"images/summer_brights.jpg"},
+  {name:"Blossom Pink",desc:"Peonies & blush tones",price:"$75",img:"images/blossom_pink.jpg"},
+  {name:"Calm Neutrals",desc:"Dried pampas & creams",price:"$58",img:"images/calm_neutrals.jpg"}
+];
+
+const makeCard=(p,highlight=false)=>`
+  <article class="card ${highlight?'highlight':''}">
+    <div class="product-img" style="background-image:url('${p.img}')"></div>
+    <div>
+      <div style="display:flex; justify-content:space-between; align-items:center">
+        <div>
+          <div style="font-weight:600; color:var(--text-primary);">${p.name}</div>
+          <div class="desc">${p.desc}</div>
+        </div>
+        <div class="price">${p.price}</div>
+      </div>
+    </div>
+    <div class="btn-row">
+      <a class="btn-ghost" href="#">View</a>
+      <a class="btn-primary" href="#">Add</a>
+    </div>
+  </article>`;
+
+document.getElementById("best-grid").innerHTML=bestSellers.map(p=>makeCard(p,true)).join("");
+document.getElementById("product-grid").innerHTML=products.map(p=>makeCard(p)).join("");
+
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add("show");
+      observer.unobserve(e.target);
+    }
+  });
+},{threshold:.2});
+document.querySelectorAll('.card').forEach(c=>observer.observe(c));
+
+const heroImg=document.querySelector('.hero img');
+window.addEventListener('scroll',()=>{ heroImg.style.transform=`translateY(${window.scrollY*0.2}px)`; });
