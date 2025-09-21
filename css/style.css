@@ -52,12 +52,12 @@ header {
 }
 .logo img {
   display: block;
-  max-height: 60px; /* desktop size */
+  max-height: 30px; /* desktop size */
   width: auto;
 }
 
 /* Responsive logo for smaller screens */
-@media(max-width:620px){
+@media(max-width:320px){
   .grid {
     grid-template-columns: repeat(2, 1fr); /* 2 columns */
     gap: 12px; /* optional, smaller gap for mobile */
