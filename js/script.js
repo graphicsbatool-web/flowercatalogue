@@ -93,11 +93,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Close popup with animation
   function startPopupClose(){
+    if (!overlay.classList.contains('active')) return;
+
     popup.classList.add('closing');
+
     popup.addEventListener('animationend', () => {
-      overlay.classList.remove('active');
       popup.classList.remove('closing');
-    }, { once: true });
+      overlay.classList.remove('active'); // hide overlay after slide‑down
+    }, { once:true });
   }
 
   closeBtn.addEventListener('click', startPopupClose);
