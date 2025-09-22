@@ -75,6 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const overlay = document.getElementById('overlay');
   const popupImg = document.getElementById('popupImg');
   const closeBtn = document.getElementById('closeBtn');
+  const popup = document.querySelector('.popup');
 
   document.body.addEventListener('click', e => {
     if (e.target.classList.contains('btn-ghost')) {
@@ -89,13 +90,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  closeBtn.addEventListener('click', () => {
-    overlay.classList.remove('active');
-  });
+  function startPopupClose(){
+    popup.classList.add('exit');
+    popup.addEventListener('animationend', () => {
+      overlay.classList.remove('active');
+      popup.classList.remove('exit');
+    }, { once: true });
+  }
+
+  closeBtn.addEventListener('click', startPopupClose);
 
   overlay.addEventListener('click', e => {
     if (e.target === overlay) {
-      overlay.classList.remove('active');
+      startPopupClose();
     }
   });
 
