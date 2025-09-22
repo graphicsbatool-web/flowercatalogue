@@ -152,7 +152,7 @@ section h3::after{
 }
 .btn-primary:hover{background:var(--accent-copper); color:var(--text-primary);}
 
-/* === Popup Styles with Animations === */
+/* === Popup Styles with Bounce Animation === */
 .overlay {
   position: fixed;
   top: 0; left: 0;
@@ -163,7 +163,7 @@ section h3::after{
   align-items: center;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
   z-index: 2000;
 }
 
@@ -178,11 +178,11 @@ section h3::after{
   border-radius: 12px;
   max-width: 90%;
   opacity: 0;
-  transform: scale(0.7);
   box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+  transform: scale(0.7);
 }
 
-/* Bounce IN */
+/* ✨ Bounce animation */
 .overlay.active .popup {
   animation: popup-bounce 0.45s ease forwards;
 }
@@ -190,17 +190,7 @@ section h3::after{
 @keyframes popup-bounce {
   0%   { transform: scale(0.7); opacity: 0; }
   70%  { transform: scale(1.05); opacity: 1; }
-  100% { transform: scale(1);   opacity: 1; }
-}
-
-/* Slide‑down EXIT */
-.popup.closing {
-  animation: popup-exit 0.35s ease forwards;
-}
-
-@keyframes popup-exit {
-  from { transform: scale(1) translateY(0); opacity: 1; }
-  to   { transform: scale(0.9) translateY(40px); opacity: 0; }
+  100% { transform: scale(1);  }
 }
 
 .popup img {
