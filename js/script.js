@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-
   // Data
   const bestSellers = [
     {name:"Bouquet A",desc:"Hand-tied ranunculus & foliage",price:"$65",img:"images/bouqueta.jpg"},
@@ -17,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     {name:"Calm Neutrals",desc:"Dried pampas & creams",price:"$58",img:"images/calm_neutrals.jpg"}
   ];
 
-  // Function to create a product card
+  // Create product card
   const makeCard = (p, highlight=false) => `
     <article class="card ${highlight ? 'highlight' : ''}">
       <div class="product-img" style="background-image:url('${p.img}')"></div>
@@ -32,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>
       <div class="btn-row">
         <a class="btn-ghost" href="#">View</a>
-        <a class="btn-primary" href="#">Add</a>
+        <a class="btn-primary add-to-cart" data-name="${p.name}" data-price="${p.price}" data-img="${p.img}" href="#">Add</a>
       </div>
     </article>`;
 
@@ -42,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if(bestGrid) bestGrid.innerHTML = bestSellers.map(p => makeCard(p, true)).join("");
   if(productGrid) productGrid.innerHTML = products.map(p => makeCard(p)).join("");
 
-  // Intersection Observer for card fade-in
+  // Intersection Observer for fade-in
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if(entry.isIntersecting){
@@ -71,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 200);
   }
 
-  // === Popup Logic ===
+  // === Popup Logic (View) ===
   const overlay = document.getElementById('overlay');
   const popupImg = document.getElementById('popupImg');
   const closeBtn = document.getElementById('closeBtn');
@@ -82,21 +81,66 @@ document.addEventListener('DOMContentLoaded', () => {
       const card = e.target.closest('.card');
       if (card) {
         const bg = card.querySelector('.product-img').style.backgroundImage;
-        const imgUrl = bg.slice(5, -2); // remove url("...")
+        const imgUrl = bg.slice(5, -2);
         popupImg.src = imgUrl;
         overlay.classList.add('active');
       }
     }
   });
 
-  closeBtn.addEventListener('click', () => {
-    overlay.classList.remove('active');
+  closeBtn.addEventListener('click', () => overlay.classList.remove('active'));
+  overlay.addEventListener('click', e => { if (e.target === overlay) overlay.classList.remove('active'); });
+
+  // === Cart Logic ===
+  const cartBar = document.getElementById('cart-bar');
+  const cartItemsContainer = document.getElementById('cart-items');
+  const cartCount = document.getElementById('cart-count');
+  const cartTotalEl = document.getElementById('cart-total');
+  const checkoutBtn = document.getElementById('checkoutBtn');
+  let cart = [];
+
+  function updateCart() {
+    cartItemsContainer.innerHTML = "";
+    let total = 0;
+    cart.forEach((item, index) => {
+      const itemEl = document.createElement("div");
+      itemEl.classList.add("cart-item");
+      itemEl.innerHTML = `
+        <img src="${item.img}" alt="${item.name}">
+        <div class="cart-item-info">
+          <div class="cart-item-name">${item.name}</div>
+          <div class="cart-item-price">${item.price}</div>
+        </div>
+        <button class="remove-btn" data-index="${index}">✕</button>
+      `;
+      cartItemsContainer.appendChild(itemEl);
+      total += parseFloat(item.price.replace("$",""));
+    });
+    cartCount.textContent = cart.length;
+    cartTotalEl.textContent = `$${total.toFixed(2)}`;
+    cartBar.classList.toggle("active", cart.length > 0);
+  }
+
+  document.body.addEventListener("click", e => {
+    if(e.target.classList.contains("add-to-cart")){
+      e.preventDefault();
+      const {name, price, img} = e.target.dataset;
+      cart.push({name, price, img});
+      updateCart();
+    }
+    if(e.target.classList.contains("remove-btn")){
+      const index = e.target.dataset.index;
+      cart.splice(index, 1);
+      updateCart();
+    }
   });
 
-  overlay.addEventListener('click', e => {
-    if (e.target === overlay) {
-      overlay.classList.remove('active');
-    }
+  checkoutBtn.addEventListener("click", () => {
+    if(cart.length === 0) return;
+    let msg = "Hello! I would like to order:\n";
+    cart.forEach(item => { msg += `- ${item.name} (${item.price})\n`; });
+    msg += `Total: ${cartTotalEl.textContent}`;
+    window.open(`https://wa.me/+97455772286?text=${encodeURIComponent(msg)}`, "_blank");
   });
 
 });
