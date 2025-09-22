@@ -75,9 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const overlay = document.getElementById('overlay');
   const popupImg = document.getElementById('popupImg');
   const closeBtn = document.getElementById('closeBtn');
-  const popup = document.querySelector('.popup');
 
-  // Open popup
   document.body.addEventListener('click', e => {
     if (e.target.classList.contains('btn-ghost')) {
       e.preventDefault();
@@ -91,23 +89,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Close popup with animation
-  function startPopupClose(){
-    if (!overlay.classList.contains('active')) return;
-
-    popup.classList.add('closing');
-
-    popup.addEventListener('animationend', () => {
-      popup.classList.remove('closing');
-      overlay.classList.remove('active'); // hide overlay after slide‑down
-    }, { once:true });
-  }
-
-  closeBtn.addEventListener('click', startPopupClose);
+  closeBtn.addEventListener('click', () => {
+    overlay.classList.remove('active');
+  });
 
   overlay.addEventListener('click', e => {
     if (e.target === overlay) {
-      startPopupClose();
+      overlay.classList.remove('active');
     }
   });
 
