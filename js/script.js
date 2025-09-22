@@ -39,7 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // Populate grids
   const bestGrid = document.getElementById("best-grid");
   const productGrid = document.getElementById("product-grid");
-
   if(bestGrid) bestGrid.innerHTML = bestSellers.map(p => makeCard(p, true)).join("");
   if(productGrid) productGrid.innerHTML = products.map(p => makeCard(p)).join("");
 
@@ -52,7 +51,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }, {threshold: 0.2});
-
   document.querySelectorAll('.card').forEach(card => observer.observe(card));
 
   // Hero parallax scroll
@@ -70,24 +68,21 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
       logo.style.transition = "opacity 1s ease";
       logo.style.opacity = 1;
-    }, 200); // matches header fade timing
+    }, 200);
   }
 
-});
- // === Popup Logic ===
+  // === Popup Logic ===
   const overlay = document.getElementById('overlay');
   const popupImg = document.getElementById('popupImg');
   const closeBtn = document.getElementById('closeBtn');
 
-  // Delegate click events for all "View" buttons
   document.body.addEventListener('click', e => {
     if (e.target.classList.contains('btn-ghost')) {
       e.preventDefault();
       const card = e.target.closest('.card');
       if (card) {
         const bg = card.querySelector('.product-img').style.backgroundImage;
-        // Extract actual URL from background-image: url("...")
-        const imgUrl = bg.slice(5, -2);
+        const imgUrl = bg.slice(5, -2); // remove url("...")
         popupImg.src = imgUrl;
         overlay.classList.add('active');
       }
@@ -103,3 +98,5 @@ document.addEventListener('DOMContentLoaded', () => {
       overlay.classList.remove('active');
     }
   });
+
+});
