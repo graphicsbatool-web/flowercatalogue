@@ -77,6 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const closeBtn = document.getElementById('closeBtn');
   const popup = document.querySelector('.popup');
 
+  // Open popup
   document.body.addEventListener('click', e => {
     if (e.target.classList.contains('btn-ghost')) {
       e.preventDefault();
@@ -90,11 +91,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // Close popup with animation
   function startPopupClose(){
-    popup.classList.add('exit');
+    popup.classList.add('closing');
     popup.addEventListener('animationend', () => {
       overlay.classList.remove('active');
-      popup.classList.remove('exit');
+      popup.classList.remove('closing');
     }, { once: true });
   }
 
