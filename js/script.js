@@ -74,3 +74,32 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 });
+ // === Popup Logic ===
+  const overlay = document.getElementById('overlay');
+  const popupImg = document.getElementById('popupImg');
+  const closeBtn = document.getElementById('closeBtn');
+
+  // Delegate click events for all "View" buttons
+  document.body.addEventListener('click', e => {
+    if (e.target.classList.contains('btn-ghost')) {
+      e.preventDefault();
+      const card = e.target.closest('.card');
+      if (card) {
+        const bg = card.querySelector('.product-img').style.backgroundImage;
+        // Extract actual URL from background-image: url("...")
+        const imgUrl = bg.slice(5, -2);
+        popupImg.src = imgUrl;
+        overlay.classList.add('active');
+      }
+    }
+  });
+
+  closeBtn.addEventListener('click', () => {
+    overlay.classList.remove('active');
+  });
+
+  overlay.addEventListener('click', e => {
+    if (e.target === overlay) {
+      overlay.classList.remove('active');
+    }
+  });
