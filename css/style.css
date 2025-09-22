@@ -194,7 +194,7 @@ section h3::after{
 }
 
 /* Slide‑down EXIT */
-.popup.exit {
+.popup.closing {
   animation: popup-exit 0.35s ease forwards;
 }
 
