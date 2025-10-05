@@ -8,10 +8,10 @@ document.addEventListener('DOMContentLoaded', () => {
   ];
 
   const products = [
-    {name:"Spring Bloom",desc:"Fresh lilies & tulips",price:"$60",img:"images/spring_bloom.jpg"},
-    {name:"Autumn Gold",desc:"Rustic wheat & roses",price:"$65",img:"images/autumn_gold.jpg"},
-    {name:"Winter Whisper",desc:"White roses & pine",price:"$70",img:"images/winter_whisper.jpg"},
-    {name:"Summer Brights",desc:"Sunflowers & asters",price:"$62",img:"images/summer_brights.jpg"},
+    {name:"Spring Bloom",desc:"Fresh lilies & tulips",price:"$60",img:"images/bouquete.jpg"},
+    {name:"Autumn Gold",desc:"Rustic wheat & roses",price:"$65",img:"imagesbouquetf.jpg"},
+    {name:"Winter Whisper",desc:"White roses & pine",price:"$70",img:"images/bouquetg.jpg"},
+    {name:"Summer Brights",desc:"Sunflowers & asters",price:"$62",img:"bouqueth.jpg"},
     {name:"Blossom Pink",desc:"Peonies & blush tones",price:"$75",img:"images/blossom_pink.jpg"},
     {name:"Calm Neutrals",desc:"Dried pampas & creams",price:"$58",img:"images/calm_neutrals.jpg"}
   ];
