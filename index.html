@@ -1,81 +1,88 @@
-<!doctype html> 
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <!-- Responsive viewport -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>flowers & gifts batool — Boutique Bouquets</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flowers & Gifts Batool — Boutique Bouquets</title>
 
-  <!-- Minimal luxury font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  <!-- Font Awesome -->
+
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
- <div class="wrap">
-    <header>
-      <div class="logo">
-        <img src="images/logo.png" alt="flowers & gifts batool logo">
+<div class="wrap">
+
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <img src="images/logo.png" alt="flowers & gifts batool">
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <img src="images/hero.jpg" alt="bouquet">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h2>Bouquets, handcrafted with emerald elegance.</h2>
+        <p>Emerald tones & copper warmth crafted to enrich moments with natural luxury.</p>
       </div>
-    </header>
 
-    <!-- Hero -->
-    <section class="hero">
-      <img src="images/hero.jpg" alt="bouquet hero">
-      <div class="hero-content">
-        <div class="hero-text">
-          <h2>Bouquets, handcrafted with emerald elegance.</h2>
-          <p>Emerald tones & copper warmth crafted to enrich your moments with natural luxury.</p>
-        </div>
-        <div class="hero-links">
-          <a href="https://wa.me/+97455772286?text=Hello%20I%20want%20to%20order%20a%20bouquet!" target="_blank">
-            <i class="fab fa-whatsapp"></i> Contact
-          </a>
-          <a href="https://share.google/nQ9eB6sQwDWeeGmvy" target="_blank">
-            <i class="fas fa-map-marker-alt"></i> Address
-          </a>
-          <a href="https://www.instagram.com/flowersandgifts_batool?igsh=YWM3NnVtbWx2OHZr" target="_blank">
-            <i class="fab fa-instagram"></i> Social Media
-          </a>
-        </div>
+      <div class="hero-links">
+        <a href="https://wa.me/+97455772286?text=Hello!%20I%20want%20to%20order%20a%20bouquet" target="_blank">
+          <i class="fab fa-whatsapp"></i> Contact
+        </a>
+
+        <a href="https://share.google/nQ9eB6sQwDWeeGmvy" target="_blank">
+          <i class="fas fa-map-marker-alt"></i> Address
+        </a>
+
+        <a href="https://www.instagram.com/flowersandgifts_batool" target="_blank">
+          <i class="fab fa-instagram"></i> Instagram
+        </a>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Best Sellers -->
-    <section id="bestsellers">
-      <h3>Best Sellers</h3>
-      <div id="best-grid" class="grid"></div>
-    </section>
+  <!-- Best Sellers -->
+  <section id="bestsellers">
+    <h3>Best Sellers</h3>
+    <div id="best-grid" class="grid"></div>
+  </section>
 
-    <!-- Products -->
-    <section id="shop">
-      <h3>Our Bouquets</h3>
-      <div id="product-grid" class="grid"></div>
-    </section>
+  <!-- Products -->
+  <section id="shop">
+    <h3>Our Bouquets</h3>
+    <div id="product-grid" class="grid"></div>
+  </section>
+
+</div>
+
+<!-- Image Popup -->
+<div class="overlay" id="overlay">
+  <div class="popup">
+    <img id="popupImg" alt="">
+    <button class="close-btn" id="closeBtn">Close</button>
+  </div>
+</div>
+
+<!-- Cart -->
+<div id="cart-bar" class="cart-bar">
+  <div class="cart-header">
+    <i class="fas fa-shopping-cart"></i>
+    <span id="cart-count">0</span> items
   </div>
 
-  <!-- Popup Overlay -->
-  <div class="overlay" id="overlay">
-    <div class="popup">
-      <img src="" alt="Product Preview" id="popupImg">
-      <button class="close-btn" id="closeBtn">Close</button>
-    </div>
-  </div>
+  <div id="cart-items" class="cart-items"></div>
 
-  <!-- Cart Bar -->
-  <div id="cart-bar" class="cart-bar">
-    <div class="cart-header">
-      <i class="fas fa-shopping-cart"></i>
-      <span id="cart-count">0</span> items
-    </div>
-    <div id="cart-items" class="cart-items"></div>
-    <div class="cart-footer">
-      <div class="cart-total">Total: <span id="cart-total">$0</span></div>
-      <button id="checkoutBtn" class="checkout-btn">Checkout</button>
-    </div>
+  <div class="cart-footer">
+    <div class="cart-total">Total: <span id="cart-total">$0</span></div>
+    <button id="checkoutBtn" class="checkout-btn">Checkout</button>
   </div>
+</div>
 
-  <script src="js/script.js"></script>
+<script src="js/script.js"></script>
 </body>
 </html>
